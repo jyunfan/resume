@@ -1,0 +1,253 @@
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+% Conditional compiling.
+\newif\ifpersonal
+%\personaltrue
+\personalfalse
+
+\documentclass[11pt,a4paper]{moderncv}
+
+\usepackage{fontspec,xunicode,xltxtra}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+\usepackage{xeCJK}
+\setCJKmainfont{Hei}
+
+% moderncv themes
+%\moderncvtheme[blue]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+\moderncvtheme[blue]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+%\usepackage{hyperref}
+
+% change publication style
+\usepackage{cite}
+\renewcommand{\refname}{\textsc{Publications}}
+\makeatletter
+\renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+\usepackage{booktabs}
+\graphicspath{{image/}}
+%\pagestyle{plain}
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\recomputelengths                             % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Jyun-Fan}
+\familyname{Tsai}
+\title{\textnormal{Resume}}               % optional, remove the line if not wanted
+%\address{}{R518, Institute of Information Science,\\ Academia Sinica, Nankang, Taipei 115}    % optional, remove the line if not wanted
+\mobile{+886.975.606.275}                    % optional, remove the line if not wanted
+%\phone{+886-2-2788-3799 ext.~1551}                      % optional, remove the line if not wanted
+%\fax{+886-2-2651-8660}                          % optional, remove the line if not wanted
+\email{jyunfan [AT] gmail.com}                      % optional, remove the line if not wanted
+%\extrainfo{additional information (optional)} % optional, remove the line if not wanted
+\photo[64pt]{photo}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+% ensure the order of publication
+%\nocite{Chen2010, Chen2010a, Hsieh2010a, Hsieh2010, Chen2009, Chu2008, Chen2006, Chen2005, Chen2004a, Chen2004}
+
+\vspace{-5.0ex}
+\ifpersonal
+\section{\textsc{Personal Information}}
+\cvitem{Chinese
+Name}{
+蔡濬帆
+%\raisebox{-0.7ex}{\includegraphics[height=0.18in,trim=0 0 0 60,clip]{jftsai-chinese}}
+} %\cvitem{Date of Birth}{February 22, 1982}
+\fi
+
+%\vspace{-4.0ex}
+\section{\textsc{Education}}
+\cventry{2004--2006}{M.S.} {Graduate Institute of Computer Science
+and Information Engineering} {\newline{}National Taiwan
+University}{Taipei}{}\cvitem{Advisor}{\small Professor Li-Chen Fu}
+\cvitem{Thesis}{\small Piecewise-Linear Model for Lane Detection and
+Automatic Updating for Vehicle Detection}
+\cventry{2000--2004}{B.S.} {Department of Computer Science and
+Information Engineering} {\newline National Taiwan
+University}{Taipei}{}
+%\cvline{1994--1997}{\textsl{Math \& Science Excellent Class},
+%\newline National Taichung First Senior High School.}
+%\cvline{1991--1994}{\textsl{Art Excellent Class},
+%\newline Nantou Junior High School.}
+%\cvline{1985--1991}{Lugu Elementary School.}
+
+%\vspace{-4.0ex}
+\section{\textsc{Experience}}
+\cventry{Jan. 2011--Now}{Technical Manager}%
+{}{Systex Corporation}%
+{Taipei}{}
+\cvitem{Description}{Project: Splunk App for VMware\newline
+\small I am a software design engineer in the Splunk solutions team.
+We develop an app for monitoring and analyzing VMware environments
+(including log, inventory, and performance data) on Splunk platform,
+which is a search engine. My responsibilities is writing modules to
+fetch and parse logs of VMware server, create web pages for displaying
+collected data, and test the application.
+\begin{itemize}
+\item Get log data via VMware Perl API.
+\item Extract timestamp and compose events from log data.
+\item Create web pages with xml-based language, a domain specific language defined in Splunk platform.
+\end{itemize}}
+
+\cventry{2007--2011}{Research Assistant}%
+{Institute of Information Science}%
+{Academia Sinica}{Taipei}{} \cvitem{Supervisor}{\small Dr. Tyng-Luh
+Liu} \cvitem{Description}{
+Project: face detection and face recognition (2007-2008)\newline
+\begin{small} Our lab has developed a face detection algorithm.
+My responsibility is to improve both accuracy and speed of the program,
+so that the program meets the requirements for technology transfer.
+\begin{itemize}
+\item Reduce the quantization error by updating image resizing algorithm, and improve detection accuracy.
+\item Introduce a public face database to our image database. This improves detection accuracy.
+\item Use OpenMP to take advantage of parallel processing to speed up training process.
+\item Handle technology transfer to two companies. The face detection technology made more than one million TWD income for the institution.
+\end{itemize}
+\end{small}
+Project: image classification (2009-2010)\newline
+\small My colleague has developed a fast algorithm for general object recognition. My responsibility is to implement the algorithm and also compare the performance with other algorithms.
+\begin{itemize}
+\item Most of our code is written in MATLAB. Some critical parts are written in C++ for better speed.
+\item Speed up computation by splitting jobs and sending jobs to multiple computers via SSH.
+\item The work is published on a top computer vision conference \cite{Tsai2009}.
+\end{itemize}
+}
+
+\cventry{2005--2007}{Research Assistant (Part-time)}%
+{Graduate Institute of Computer Science
+and Information Engineering}%
+{National Taiwan University}{Taipei}{} \cvitem{Supervisor}{\small
+Professor Li-Chen Fu} \cvitem{Description}{\small Worked on
+a vision-based driving assistance system that includes
+video enhancement in night \cite{Tsai2006b} and road scene analysis
+\cite{Tsai2006a}.}
+
+\cventry{2003--2005}{Website Development Manager (Part-time)}%
+{Computer and Information Networking Center}%
+{National Taiwan University}{Taipei}{} \cvitem{Supervisor}{\small
+Professor Hsiu-Ping Yueh} \cvitem{Description}{\small Developed a website for asynchronous learning. The system contains a forum and an interface that connects a streaming server and a video source.}
+
+%\cventry{2006}{Teaching assistant}%
+%{Graduate Institute of Computer Science
+%and Information Engineering}%
+%{National Taiwan University}{Taipei}{} \cvitem{course}{\small
+%922U1070 Robotics}
+
+%\vspace{-4.0ex}
+
+\section{\textsc{Awards}}
+\cvitem{2000}{Silver medal in the 12th International Olympiad in
+Informatics (IOI)}
+\cvitem{2001}{Presidential Award of National Taiwan University
+(Award for top 5\% students in the class, 2001)}
+\cvitem{2000}{Third
+Place in the ACM International Collegiate Programming Contest
+(ACM-ICPC) 2000 Asia Regional, Taipei Site. Team: God of Power}
+\cvitem{2004}{\href{http://www.mxeduc.org.tw/SiliconAwards/2009/050104_work.html}{4th EXIC Golden Silicon Awards}}
+
+%\section{\textsc{Research interests}}
+%\cvlistdoubleitem{Computer Vision}{Machine Learning}
+
+%\newpage
+
+% Publications from a BibTeX file
+\bibliographystyle{unsrt}
+\newcommand{\emphme}[1]{\textbf{#1}}
+\bibliography{jftsai}
+
+
+
+\section{\textsc{Computer skills}}
+\cvcomputer{Programming}{C, Matlab, Perl, C++, PHP}{}{}
+
+\section{\textsc{Languages}}
+\cvlanguage{Chinese}{Native}{}
+\cvlanguage{English}{Fluent}{
+    %Scored 960 out of 990 on the TOEIC
+}
+%\cvlanguage{Japanese}{Beginning}{Japanese-Language Proficiency Test Level N2}
+
+%\vspace{-1.0ex}
+
+\section{\textsc{Reference}}
+\cvitem{}{references available upon request}
+%\cvitem{}{
+%  \href{http://www.ee.ntu.edu.tw/profile?id=23}{Dr. Li-Chen Fu}
+%  \newline{}Professor,
+%  \href{http://www.ee.ntu.edu.tw/}{Department of Electrical
+%  Engineering} and
+%  \href{http://www.csie.ntu.edu.tw/}{Department of Computer Science and Information Engineering}
+%  \newline
+%  \href{http://www.ntu.edu.tw}{National Taiwan University}
+%  \newline{}\emailsymbol~lichen@ntu.edu.tw
+%  \newline{}\phonesymbol~+886-2-23622209
+%}
+%\vspace{1.0ex}
+%\cvitem{}{
+%  \href{http://www.bicd.ntu.edu.tw/people/bio.php?PID=19}{Dr. Hsiu-Ping Yueh}
+%  \newline{}Professor,
+%  \href{http://www.bicd.ntu.edu.tw}{Department of Bio-industry Communication and Development}
+%  \newline
+%  \href{http://www.ntu.edu.tw}{National Taiwan University}
+%  \newline{}\emailsymbol~yueh@ntu.edu.tw
+%  \newline{}\phonesymbol~+886-2-33664425
+%}
+%\vspace{1.0ex}
+%\cvitem{}{
+%  \href{http://www.iis.sinica.edu.tw/~liao/}{Dr. Hong-Yuan Liao}
+%  \newline{}Research Fellow, \href{http://www.iis.sinica.edu.tw}{Institute of Information Science}
+%  \newline
+%  \href{http://www.sinica.edu.tw}{Academia Sinica}
+%  \newline{}\emailsymbol~liao@iis.sinica.edu.tw
+%  \newline{}\phonesymbol~+886-2-2788-3799 ext.~1811
+%}
+%\vspace{1.0ex}
+%\cvitem{}{
+%  \href{http://www.lis.ntu.edu.tw/mmlab/mmlab/index.html}{Dr. Wei-Jane Lin}
+%  \newline{}Professor,
+%  \href{http://www.lis.ntu.edu.tw}{Department of Department and Graduate Institute of Library and Information Science}
+%  \newline
+%  \href{http://www.ntu.edu.tw}{National Taiwan University}
+%  \newline{}\emailsymbol~vjlin@ntu.edu.tw
+%  \newline{}\phonesymbol~+886-2-33662971
+%}
+%\cvitem{}{
+%  \href{http://www.iis.sinica.edu.tw/~liutyng/}{Dr. Tyng-Luh Liu}
+%  \newline{}Research Fellow, \href{http://www.iis.sinica.edu.tw}{Institute of Information Science}
+%  \newline
+%  \href{http://www.sinica.edu.tw}{Academia Sinica}
+%  \newline{}\emailsymbol~liutyng@iis.sinica.edu.tw
+%  \newline{}\phonesymbol~+886-2-2788-3799 ext.~1508
+%}
+
+%\cvitem{}{
+%  Dr. Jian-Liang Lin
+%  \newline{}Senior engineer, ATD
+%  \newline
+%  \href{http://www.mtk.com.tw/}{MediaTek Inc.}
+%  \newline{}\mobilesymbol~+886-932-266-238
+%}
+\clearpage
+
+\end{document}
+
+%% end of file `template_en.tex'.
